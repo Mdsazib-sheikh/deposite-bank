@@ -1,5 +1,5 @@
 function getFullName(firstName, lastName){
-    console.log(arguments);
+    // console.log(arguments);
     // const fullName = firstName + ' ' + lastName;
     let fullName = '';
     for(let i = 0; i < arguments.length; i++){
