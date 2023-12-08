@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #myDiv {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+    <title>Callback Example</title>
+</head>
+<body>
+
+<div id="myDiv">This is my div.</div>
+<button onclick="changeColor()">Change Color</button>
+
+<script>
+    // JavaScript callback function
+    function changeColor() {
+        var myDiv = document.getElementById("myDiv");
+
+        // Generate a random color
+        var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+
+        // Change the background color of the div
+        myDiv.style.backgroundColor = randomColor;
+    }
+</script>
+
+</body>
+</html>

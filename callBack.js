@@ -3,8 +3,9 @@ function welComeGuest(name, greetHandler){
 }
 const actorName = "tomsHank";
 
-function greetUser(name){
-    console.log('Good morning',name);
+
+function greetMorning(name){
+    console.log('Good Morning',name);
 }
 
 function greetEvening(name){
@@ -17,4 +18,15 @@ function greetAfternoon(name){
     console.log('Good Afternoon',name);
 }
 
-welComeGuest(actorName,greetAfternoon);
+welComeGuest(actorName, greetAfternoon);
+welComeGuest('piter van', greetEvening);
+welComeGuest('rango',greetMorning);
+
+
+function handleClick(){
+    console.log('some one clicked me');  //named funtion 
+}
+
+document.getElementById('click).addEvenListerner('click', function(){
+    
+})
