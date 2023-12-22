@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #calculator {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      background-color:black;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 16px;
+      background-color: deeppink;
+    }
+
+    button {
+      width: 48px;
+      height: 48px;
+      font-size: 18px;
+      font-weight:600;
+      margin: 5px;
+      background: transparent;
+      border: 0;
+      border-radius: 50%;
+      box-shadow: -5px -6px 15px #000;
+      cursor: pointer;
+      background-color: coral;
+      outline: 1px solid #313131;
+      outline-offset: 3px;
+    }
+    button:active{
+        background: #000;
+        transform: translate(2px 2px);
+    }
+    .opr{
+        color: #fbff00;
+        background: #1e1919;
+        font-weight: 700;
+    }
+    #eqbtn{
+        background-color: orangered;
+        font-weight: 900;
+    }
+
+    #clear {
+     
+    }
+  </style>
+</head>
+<body>
+
+<d id="calculator">
+  <input type="text" id="display" readonly>
+  <br>
+  <div class="row">
+    <button id="clear" onclick="clearDisplay()" class="opr">AC</button>
+    <button  onclick="clearDisplay()" class="opr">DEL</button>
+    <button onclick="appendToDisplay('%')" class="opr">%</button>
+    <button onclick="appendToDisplay('/')" class="opr">/</button>
+  </div>
+
+  <br>
+
+  <div class="row">
+  <button onclick="appendToDisplay('7')">7</button>
+  <button onclick="appendToDisplay('8')">8</button>
+  <button onclick="appendToDisplay('9')">9</button>
+  <button onclick="appendToDisplay('*')" class="opr">*</button>
+</div>
+  <br>
+  <div class="row">
+  <button onclick="appendToDisplay('4')">4</button>
+  <button onclick="appendToDisplay('5')">5</button>
+  <button onclick="appendToDisplay('6')">6</button>
+  <button onclick="appendToDisplay('+')" class="opr">+</button>
+</div>
+
+  <br>
+  <div class="row">
+  <button onclick="appendToDisplay('1')">1</button>
+  <button onclick="appendToDisplay('2')">2</button>
+  <button onclick="appendToDisplay('3')">3</button>
+  <button onclick="appendToDisplay('-')" class="opr">-</button>
+</div>
+
+  <br>
+
+  <div class="row">
+
+  <button onclick="appendToDisplay('0')">0</button>
+  <button onclick="appendToDisplay('.')">.</button>
+  <button id="eqbtn" onclick="calculate()">=</button>
+  <button onclick="appendToDisplay('=')" class="opr">=</button>
+</div>
+
+  <br>
+
+  
+</div>
+
+<script>
+  function appendToDisplay(value) {
+    document.getElementById('display').value += value;
+  }
+
+  function clearDisplay() {
+    document.getElementById('display').value = '';
+  }
+
+  function calculate() {
+    try {
+      document.getElementById('display').value = eval(document.getElementById('display').value);
+    } catch (error) {
+      document.getElementById('display').value = 'Error';
+    }
+  }
+</script>
+
+</body>
+</html>

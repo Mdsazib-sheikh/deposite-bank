@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Order App</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .page {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 300px;
+      max-width: 100%;
+      text-align: center;
+      display: none;
+    }
+
+    h2 {
+      margin: 0;
+      padding: 20px;
+      background-color: #4caf50;
+      color: #fff;
+    }
+
+    label {
+      display: block;
+      margin: 20px 0 5px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    select, input, textarea {
+      width: calc(100% - 40px);
+      padding: 10px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    #food-image {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<div id="home-page" class="page">
+  <h2>Food Order App</h2>
+  <label for="food-type">Select Food Type:</label>
+  <select id="food-type">
+    <option value="pizza">Pizza</option>
+    <option value="burger">Burger</option>
+    <option value="pasta">Pasta</option>
+    <!-- Add more options as needed -->
+  </select>
+
+  <img src="" alt="Food" id="food-image">
+  
+  <label for="quantity">Quantity:</label>
+  <input type="number" id="quantity" placeholder="Enter quantity" required>
+
+  <label for="notes">Special Instructions:</label>
+  <textarea id="notes" placeholder="Any special instructions..."></textarea>
+
+  <button onclick="showConfirmation()">Review Order</button>
+</div>
+
+<div id="confirmation-page" class="page">
+  <h2>Order Confirmation</h2>
+  <p><strong>Food Type:</strong> <span id="confirmation-food-type"></span></p>
+  <p><strong>Quantity:</strong> <span id="confirmation-quantity"></span></p>
+  <p><strong>Notes:</strong> <span id="confirmation-notes"></span></p>
+
+  <button onclick="placeOrder()">Place Order</button>
+  <button onclick="goBack()">Go Back</button>
+</div>
+
+<script>
+  function showConfirmation() {
+    const foodType = document.getElementById('food-type').value;
+    const quantity = document.getElementById('quantity').value;
+    const notes = document.getElementById('notes').value;
+
+    document.getElementById('confirmation-food-type').innerText = foodType;
+    document.getElementById('confirmation-quantity').innerText = quantity;
+    document.getElementById('confirmation-notes').innerText = notes;
+
+    document.getElementById('food-image').src = `${foodType}.jpg`; // Assuming image files are named after food types
+
+    document.getElementById('home-page').style.display = 'none';
+    document.getElementById('confirmation-page').style.display = 'block';
+  }
+
+  function placeOrder() {
+    // Perform actions with the order data (e.g., send to a server, display a confirmation, etc.)
+    alert('Order Placed!');
+    resetForm();
+  }
+
+  function goBack() {
+    document.getElementById('home-page').style.display = 'block';
+    document.getElementById('confirmation-page').style.display = 'none';
+  }
+
+  function resetForm() {
+    document.getElementById('food-type').value = 'pizza';
+    document.getElementById('quantity').value = '';
+    document.getElementById('notes').value = '';
+    document.getElementById('home-page').style.display = 'block';
+    document.getElementById('confirmation-page').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>

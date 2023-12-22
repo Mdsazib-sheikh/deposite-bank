@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newspaper</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+ header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  nav {
+    background-color: #444;
+    color: #fff;
+    padding: 10px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  li {
+    margin: 0 15px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  </style>
+ 
+  
+</head>
+<body>
+
+  <header>
+    <h1>Newspaper</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#" id="home">Home</a></li>
+      <li><a href="#" id="politics">Politics</a></li>
+      <li><a href="#" id="business">Business</a></li>
+      <!-- Add more categories as needed -->
+    </ul>
+  </nav>
+
+  <main id="news-container">
+    <!-- News articles will be dynamically loaded here -->
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
